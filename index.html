@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Harmony conductor</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="main" class="main">
+            <div class="settings">
+                <div class="setting volume">
+                    <p>MASTER VOLUME <input type="range" id="masterVolume" min="0" max="1" step="0.1" value="0.5"></p>
+                    <p>SOUND VOLUME <input type="range" id="soundVolume" min="0" max="1" step="0.1" value="0.5"></p>
+                </div>
+                <div class="setting wave-type">
+                    <p>WAVE TYPE</p>
+                    <ul>
+                        <li><input type="radio" class="wave-type" name="wave-type" value="sine" id="waveTypeSine" checked><label for="waveTypeSine">sine</label></li>
+                        <li><input type="radio" class="wave-type" name="wave-type" value="square" id="waveTypeSquare"><label for="waveTypeSquare">square</label></li>
+                        <li><input type="radio" class="wave-type" name="wave-type" value="sawtooth" id="waveTypeSawtooth"><label for="waveTypeSawtooth">sawtooth</label></li>
+                        <li><input type="radio" class="wave-type" name="wave-type" value="triangle" id="waveTypeTriangle"><label for="waveTypeTriangle">triangle</label></li>
+                    </ul>
+                </div>
+                <div class="setting tuning">
+                    <p>STANDARD PITCH <input type="range" id="tuningRange" min="400" max="500" step="0.1" value="440"><input type="number" id="tuningNumber" min="400" max="500" step="0.1" value="440"></p>
+                    <p>TUNING SYSTEM</p>
+                    <ul>
+                        <li><input type="radio" class="tuning-system" name="tuning-system" value="equal-tempered" id="equalTempered" checked><label for="equalTempered">EQUAL TEMPERED</label></li>
+                        <li><input type="radio" class="tuning-system" name="tuning-system" value="pure-tempered-major" id="pureTemperedMajor"><label for="pureTemperedMajor">PURE TEMPERED(MAJOR)</label></li>
+                        <li><input type="radio" class="tuning-system" name="tuning-system" value="pure-tempered-minor" id="pureTemperedMinor"><label for="pureTemperedMinor">PURE TEMPERED(MINOR)</label></li>
+                    </ul>
+                </div>
+                <div class="setting root">
+                    <p>KEY SELECT</p>
+                    <ul>
+                        <li><input type="radio" name="key-select-mode" class="key-select-mode" id="keySelectModeAuto" checked><label for="keySelectModeAuto">AUTO</label></li>
+                        <li><input type="radio" name="key-select-mode" class="key-select-mode" id="keySelectModeManual"><label for="keySelectModeManual">MANUAL</label></li>
+                    </ul>
+                    <ul>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectC" checked><label for="keySelectC">C</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectDes"><label for="keySelectDes">D♭</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectD"><label for="keySelectD">D</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectEs"><label for="keySelectEs">E♭</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectE"><label for="keySelectE">E</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectF"><label for="keySelectF">F</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectGes"><label for="keySelectGes">G♭</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectG"><label for="keySelectG">G</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectAs"><label for="keySelectAs">A♭</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectA"><label for="keySelectA">A</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectB"><label for="keySelectB">B♭</label></li>
+                        <li><input type="radio" name="key-select" class="key-select" id="keySelectH"><label for="keySelectH">B</label></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="keyboard" class="keyboard">
+                <div class="key-wrapper"><div class="key key-c"><span class="pc-key">Q</span><span class="note-detune">0.0</span><span class="key-pitch">C</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-des black-key"><span class="pc-key">2</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-d"><span class="pc-key">W</span><span class="note-detune">0.0</span><span class="key-pitch">D</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-es black-key"><span class="pc-key">3</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-e"><span class="pc-key">E</span><span class="note-detune">0.0</span><span class="key-pitch">E</span></div></div>
+                <div class="key-wrapper"><div class="key key-f"><span class="pc-key">R</span><span class="note-detune">0.0</span><span class="key-pitch">F</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-ges black-key"><span class="pc-key">5</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-g"><span class="pc-key">T</span><span class="note-detune">0.0</span><span class="key-pitch">G</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-as black-key"><span class="pc-key">6</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-a"><span class="pc-key">Y</span><span class="note-detune">0.0</span><span class="key-pitch">A</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-b black-key"><span class="pc-key">7</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-h"><span class="pc-key">U</span><span class="note-detune">0.0</span><span class="key-pitch">H</span></div></div>
+                <div class="key-wrapper"><div class="key key-c"><span class="pc-key">Z</span><span class="note-detune">0.0</span><span class="key-pitch">C</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-des black-key"><span class="pc-key">S</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-d"><span class="pc-key">X</span><span class="note-detune">0.0</span><span class="key-pitch">D</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-es black-key"><span class="pc-key">D</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-e"><span class="pc-key">C</span><span class="note-detune">0.0</span><span class="key-pitch">E</span></div></div>
+                <div class="key-wrapper"><div class="key key-f"><span class="pc-key">V</span><span class="note-detune">0.0</span><span class="key-pitch">F</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-ges black-key"><span class="pc-key">G</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-g"><span class="pc-key">B</span><span class="note-detune">0.0</span><span class="key-pitch">G</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-as black-key"><span class="pc-key">H</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-a"><span class="pc-key">N</span><span class="note-detune">0.0</span><span class="key-pitch">A</span></div></div>
+                <div class="key-wrapper black-key-wrapper"><div class="key key-b black-key"><span class="pc-key">J</span><span class="note-detune">0.0</span></div></div>
+                <div class="key-wrapper"><div class="key key-h"><span class="pc-key">M</span><span class="note-detune">0.0</span><span class="key-pitch">H</span></div></div>
+                <div class="key-wrapper"><div class="key key-c"><span class="pc-key">,</span><span class="note-detune">0.0</span><span class="key-pitch">C</span></div></div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/harmonyconductor.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
