@@ -1,109 +1,146 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+div, p {
+  margin: 0;
+  padding: 0;
+}
+
+input[type='range'] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 2px;
+  background: lightgray;
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  background:blue;
+  height:1em;
+  width:1em;
+  border: 1px solid black;
+  border-radius:50%;
+}
+input[type=range]::-ms-tooltip {
+  display:none;
+}
+input[type=range]::-moz-range-track {
+  height:0;
+}
+input[type=range]::-moz-range-thumb {
+  background:blue;
+  height:1em;
+  width:1em;
+  border:none;
+  border: 1px solid black;
+  border-radius:50%;
 }
 
 .container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .container .main {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 /* SETTING STYLES */
 .container .main .settings {}
 .container .main .settings .setting {}
 .container .main .settings .setting ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0.25em;
 }
 .container .main .settings .setting ul li {
-    margin: 0;
-    display: inline-block;
+  margin: 0;
+  display: inline-block;
 }
 .container .main .settings .setting ul li input[type='radio'],
 .container .main .settings .setting ul li input[type='checkbox'] {
-    display: none;
+  display: none;
 }
 .container .main .settings .setting ul li label {
-    padding: 0.2em;
-    border: 1px gray solid;
-    border-radius: 0.2em;
-    background-color: white;
+  padding: 0.2em;
+  border: 1px gray solid;
+  border-radius: 0.2em;
+  background-color: white;
 
-    transition: all 0.2ms;
+  transition: all 0.2ms;
 }
 .container .main .settings .setting ul li label:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 .container .main .settings .setting ul li input:checked+label {
-    background-color: blue;
-    color: white;
+  background-color: blue;
+  color: white;
 }
 
 /* KEYBOARD STYLES */
-.container .main .keyboard {}
+.container .main .keyboard {
+  width: 98vw;
+}
 .container .main .keyboard .key-wrapper {
-    width: 4em;
-    height: 20em;
-    position: relative;
+  width: 6.5vw;
+  height: 20em;
+  position: relative;
 
-    background: white;
-    float: left;
+  background: white;
+  float: left;
 }
 .container .main .keyboard .key-wrapper.black-key-wrapper {
-    width: 0px;
-    height: 0px;
+  width: 0px;
+  height: 0px;
 }
 .container .main .keyboard  .key-wrapper .key {
-    width: 4em;
-    height: 20em;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    text-align: center;
+  width: 6.5vw;
+  height: 20em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
 }
 .container .main .keyboard  .key-wrapper .key[data-select-state='1'] {
-    background: #999;
+  background: #999;
 }
 .container .main .keyboard .key-wrapper .key .pc-key {
-    display: inline-block;
-    margin-top: 0.5em;
+  display: inline-block;
+  margin-top: 0.5em;
 }
 .container .main .keyboard .key-wrapper .key .key-pitch {
-    display: inline-block;
-    position: absolute;
-    bottom: 4em;
-    right: 0; left: 0;
+  display: inline-block;
+  position: absolute;
+  bottom: 4em;
+  right: 0; left: 0;
 }
 .container .main .keyboard .key-wrapper .key .note-detune {
-    display: inline-block;
-    position: absolute;
-    transform: rotateZ(90deg);
-    bottom: 1em; right: 0; left: 0;
+  display: inline-block;
+  position: absolute;
+  transform: rotateZ(90deg);
+  bottom: 1em;
+  right: 0; left: 0;
 }
 .container .main .keyboard  .key-wrapper .key.black-key {
-    z-index: 10;
-    position: absolute;
-    left: -1em;
-    background: black;
-    width: 2em;
-    height: 10em;
+  z-index: 10;
+  position: absolute;
+  left: -1.5vw;
+  background: black;
+  width: 3vw;
+  height: 10em;
 
-    color: white;
+  color: white;
 }
 .container .main .keyboard  .key-wrapper .key.black-key[data-select-state='1'] {
-    background: #999;
+  background: #999;
 }
 .container .main .keyboard .key-wrapper .key.key.black-key .pc-key {
-    margin-top: 0;
+  margin-top: 0;
 }

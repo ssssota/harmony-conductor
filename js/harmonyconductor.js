@@ -124,13 +124,13 @@ class HarmonyConductor {
     this._rootNote = this.NOTE_C
     this._mouseState = this.NOT_PUSHED
     this._keyMap = new Map([
-      ['q',0],['2',1],['w',2],['3',3],['e',4],['r',5],['5',6],['t',7],['6',8],['y',9],['7',10],['u',11],['i',12],
+      ['q',0],['2',1],['w',2],['3',3],['e',4],['r',5],['5',6],['t',7],['6',8],['y',9],['7',10],['u',11],['i',12],['9',13],['o',14],['0',15],['p',16],['[',17],['=',18],[']',19],['Backspace',20],['\\',21],
       ['z',12],['s',13],['x',14],['d',15],['c',16],['v',17],['g',18],['b',19],['h',20],['n',21],['j',22],['m',23],[',',24]
     ])
     this._detune = new Map([
       ['equal-tempered', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-      ['pure-tempered-major', [12 * Math.log2(1/1), 12 * Math.log2(16/15), 12 * Math.log2(9/8), 12 * Math.log2(6/5), 12 * Math.log2(5/4), 12 * Math.log2(4/3), 12 * Math.log2(45/32), 12 * Math.log2(3/2), 12 * Math.log2(8/5), 12 * Math.log2(5/3), 12 * Math.log2(9/5), 12 * Math.log2(15/8)]],
-      ['pure-tempered-minor', [12 * Math.log2(1/1), 12 * Math.log2(16/15), 12 * Math.log2(9/8), 12 * Math.log2(6/5), 12 * Math.log2(5/4), 12 * Math.log2(4/3), 12 * Math.log2(45/32), 12 * Math.log2(3/2), 12 * Math.log2(8/5), 12 * Math.log2(5/3), 12 * Math.log2(9/5), 12 * Math.log2(15/8)]]
+      ['pure-tempered-major', [12 * Math.log2(1/1), 12 * Math.log2(25/24), 12 * Math.log2(9/8), 12 * Math.log2(6/5), 12 * Math.log2(5/4), 12 * Math.log2(4/3), 12 * Math.log2(25/18), 12 * Math.log2(3/2), 12 * Math.log2(25/16), 12 * Math.log2(5/3), 12 * Math.log2(9/5), 12 * Math.log2(15/8)]],
+      ['pure-tempered-minor', [12 * Math.log2(1/1), 12 * Math.log2(27/25), 12 * Math.log2(9/8), 12 * Math.log2(6/5), 12 * Math.log2(5/4), 12 * Math.log2(4/3), 12 * Math.log2(36/25), 12 * Math.log2(3/2), 12 * Math.log2(8/5), 12 * Math.log2(5/3), 12 * Math.log2(9/5), 12 * Math.log2(15/8)]]
     ])
 
     this.gainNodes = []
@@ -140,7 +140,7 @@ class HarmonyConductor {
 
     // set setting events
     // master volume
-    document.querySelector('#masterVolume').addEventListener('change', ev => {console.log(ev)
+    document.querySelector('#masterVolume').addEventListener('change', ev => {
       this.masterVolume = parseFloat(ev.target.value)
       console.log(this.masterVolume)
     })
@@ -198,7 +198,15 @@ class HarmonyConductor {
         this.mouseState = this.PUSHED
         this.keyDown($key)
       })
+      $key.addEventListener('touchstart', ev => {
+        this.mouseState = this.PUSHED
+        this.keyDown($key)
+      })
       $key.addEventListener('mouseup', ev => {
+        this.mouseState = this.NOT_PUSHED
+        this.keyUp($key)
+      })
+      $key.addEventListener('touchend', ev => {
         this.mouseState = this.NOT_PUSHED
         this.keyUp($key)
       })
@@ -294,10 +302,9 @@ class HarmonyConductor {
     const maxPotential = Math.max(...rootCandidates)
     if (maxPotential === 0) return
     this.rootNote = rootCandidates.indexOf(maxPotential) % this.OCTAVE
-    console.log(rootCandidates)
     document.querySelectorAll('.key-select')[this.rootNote].click()
     document.querySelectorAll('.note-detune').forEach(($e, index) => {
-      $e.textContent = Math.round(this.getDetune(index) * 10) / 10
+      $e.textContent = new Number(Math.round(this.getDetune(index) * 10) / 10).toFixed(1)
     })
   }
 
