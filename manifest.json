@@ -3,5 +3,27 @@
   "short_name": "Harmony Conductor",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#fff"
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "icon64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "icon128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ]
 }
