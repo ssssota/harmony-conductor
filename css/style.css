@@ -8,6 +8,8 @@ html, body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  font-family: "M PLUS Rounded 1c", sans-serif, serif;
 }
 div, p {
   margin: 0;
@@ -54,16 +56,26 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* SETTING STYLES */
-.container .main .settings {}
-.container .main .settings .setting {}
+.container .main .settings {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .main .settings .setting {
+  padding: 0.5em;
+  border: 1px dashed #ccc;
+}
 .container .main .settings .setting ul {
   list-style: none;
-  margin: 0;
-  padding: 0.25em;
+  margin: 0.2em;
+  padding: 0;
 }
 .container .main .settings .setting ul li {
   margin: 0;
   display: inline-block;
+  height: 2em;
+}
+.container .main .settings .setting.tuning ul li {
+  display: block;
 }
 .container .main .settings .setting ul li input[type='radio'],
 .container .main .settings .setting ul li input[type='checkbox'] {
@@ -87,11 +99,12 @@ input[type=range]::-moz-range-thumb {
 
 /* KEYBOARD STYLES */
 .container .main .keyboard {
-  width: 98vw;
+  width: 100vw;
+  overflow: hidden;
 }
 .container .main .keyboard .key-wrapper {
-  width: 6.5vw;
-  height: 20em;
+  width: 6.66vw;
+  height: 20.1em;
   position: relative;
 
   background: white;
@@ -102,7 +115,7 @@ input[type=range]::-moz-range-thumb {
   height: 0px;
 }
 .container .main .keyboard  .key-wrapper .key {
-  width: 6.5vw;
+  width: 6.66vw;
   height: 20em;
   border: 1px solid #ccc;
   border-radius: 3px;
