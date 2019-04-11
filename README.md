@@ -10,4 +10,4 @@ Access [Harmony Conductor](https://harmony-conductor.netlify.com).
 
 ## Attention
 
-[Harmocon](https://github.com/ssssota/harmocon) is newer project.
+[Harmocon](https://github.com/ssssota/harmocon) is a newer project.
